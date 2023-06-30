@@ -1,5 +1,4 @@
 package data;
-
 import java.io.Serializable;
 public class TodoListItemDTO implements Serializable {
     public int Id;

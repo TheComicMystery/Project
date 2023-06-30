@@ -1,11 +1,7 @@
 package data;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.File;
 import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -21,6 +17,7 @@ public class CRUD {
     public void Create(TodoListItemDTO item) {
         item.Id = MaxIndex++;
         Todolist.add(item);
+        Serialize();
     }
 
     public void Update(TodoListItemDTO itemToUpdate) {
@@ -31,10 +28,12 @@ public class CRUD {
                 break;
             }
         }
+        Serialize();
     }
 
     public void Delete(int id) {
         Todolist.removeIf(item -> item.Id == id);
+        Serialize();
     }
 
     public String Read(int id) {
@@ -88,5 +87,6 @@ public class CRUD {
             Todolist.clear();
             MaxIndex = 1;
         }
+        Serialize();
     }
 }

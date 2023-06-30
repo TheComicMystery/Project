@@ -1,13 +1,9 @@
 import data.TodoListItemDTO;
 import java.util.Scanner;
 
-import data.TodoListItemDTO;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Welcome, sir. Enter 'Help' to get help");
-
+        System.out.println("Welcome, sir. Print 'Help' to get help");
         data.CRUD crud = new data.CRUD();
         Scanner scanner = new Scanner(System.in);
 
@@ -16,17 +12,16 @@ public class Main {
             String input = scanner.nextLine().toLowerCase();
 
             if (input.equals("help")) {
-                System.out.println("'Exit' - quit");
-                System.out.println("'ShowAll' - see all data");
-                System.out.println("'Create' - create object");
-                System.out.println("'Read' - see data of object");
-                System.out.println("'Update' - update object");
-                System.out.println("'Delete' - remove object");
-                System.out.println("'Find' - search for objects");
-                System.out.println("'Sort' - sort objects");
-                System.out.println("'Serial' - serialize data");
+                System.out.println("'ShowAll' - see all tasks");
+                System.out.println("'Create' - create task");
+                System.out.println("'Read' - see task");
+                System.out.println("'Update' - update task");
+                System.out.println("'Delete' - remove task");
+                System.out.println("'Find' - search for tasks");
+                System.out.println("'Sort' - sort tasks");
                 System.out.println("'SaveInfo' - save data to the file");
                 System.out.println("'ReadInfo' - read data from the file");
+                System.out.println("'Exit' - quit");
             } else if (input.equals("exit")) {
                 break;
             } else if (input.equals("showall")) {
@@ -66,9 +61,6 @@ public class Main {
                 crud.Sort();
                 String result = crud.ShowAll();
                 System.out.println(result);
-            } else if (input.equals("serial")) {
-                String result = crud.Serialize();
-                System.out.println("Done: " + result);
             } else if (input.equals("saveinfo")) {
                 String result = crud.Serialize();
                 crud.SaveInfo(result);
