@@ -4,4 +4,5 @@ public class TodoListItemDTO implements Serializable {
     public int Id;
     public String Name;
     public String Status;
+    public String Date;
 }

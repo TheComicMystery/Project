@@ -39,7 +39,7 @@ public class CRUD {
     public String Read(int id) {
         for (TodoListItemDTO item : Todolist) {
             if (item.Id == id) {
-                return "Id: " + item.Id + " Name: " + item.Name + " Status: " + item.Status;
+                return "Id: " + item.Id + " Name: " + item.Name + " Status: " + item.Status + " Date: " + item.Date;
             }
         }
         return "";
@@ -56,7 +56,7 @@ public class CRUD {
     public String Find(String pattern) {
         StringBuilder result = new StringBuilder();
         for (TodoListItemDTO item : Todolist) {
-            if (item.Name.contains(pattern) || item.Status.contains(pattern)) {
+            if (item.Name.contains(pattern) || item.Status.contains(pattern))   {
                 result.append(Read(item.Id)).append("\r\n");
             }
         }
