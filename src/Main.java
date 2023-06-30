@@ -6,6 +6,7 @@ public class Main {
         System.out.println("Welcome, sir. Print 'Help' to get help");
         data.CRUD crud = new data.CRUD();
         Scanner scanner = new Scanner(System.in);
+        crud.ReadInfo();
 
         while (true) {
             System.out.print("> ");
@@ -13,21 +14,18 @@ public class Main {
 
             if (input.equals("help")) {
                 System.out.println("'ShowAll' - see all tasks");
-                System.out.println("'Create' - create task");
+                System.out.println("'Add' - create task");
                 System.out.println("'Read' - see task");
                 System.out.println("'Update' - update task");
                 System.out.println("'Delete' - remove task");
                 System.out.println("'Find' - search for tasks");
                 System.out.println("'Sort' - sort tasks");
                 System.out.println("'SaveInfo' - save data to the file");
-                System.out.println("'ReadInfo' - read data from the file");
                 System.out.println("'Exit' - quit");
-            } else if (input.equals("exit")) {
-                break;
             } else if (input.equals("showall")) {
                 String result = crud.ShowAll();
                 System.out.println(result);
-            } else if (input.equals("create")) {
+            } else if (input.equals("add")) {
                 TodoListItemDTO item = new TodoListItemDTO();
                 System.out.println("Enter name of the task:");
                 item.Name = scanner.nextLine();
@@ -61,14 +59,12 @@ public class Main {
                 crud.Sort();
                 String result = crud.ShowAll();
                 System.out.println(result);
-            } else if (input.equals("saveinfo")) {
-                String result = crud.Serialize();
-                crud.SaveInfo(result);
-                System.out.println("Data saved to file.");
-            } else if (input.equals("readinfo")) {
-                crud.ReadInfo();
-                System.out.println("Data read from file.");
-            } else {
+            } else if (input.equals("exit")) {
+                    String result = crud.Serialize();
+                    crud.SaveInfo(result);
+                    break;
+                }
+              else {
                 System.out.println("This command is not supported");
             }
         }
